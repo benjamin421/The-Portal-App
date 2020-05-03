@@ -11,7 +11,7 @@ class _SplashScreenState extends State<SplashScreen> {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
-        child: Text("Splash screen"),
+        child: Text("Splash Screen"),
       ),
     );
   }
