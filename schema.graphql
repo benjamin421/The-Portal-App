@@ -1,0 +1,1502 @@
+directive @discord on OBJECT | FIELD_DEFINITION
+directive @dataCID on FIELD_DEFINITION
+directive @auth(permissions: [String]) on FIELD_DEFINITION
+directive @norm on FIELD_DEFINITION
+directive @user on FIELD_DEFINITION
+directive @cypher(statement: String) on FIELD_DEFINITION
+directive @relation(
+  name: String
+  direction: _RelationDirections
+  from: String
+  to: String
+) on FIELD_DEFINITION | OBJECT
+directive @additionalLabels(labels: [String]) on OBJECT
+directive @MutationMeta(
+  relationship: String
+  from: String
+  to: String
+) on FIELD_DEFINITION
+directive @neo4j_ignore on FIELD_DEFINITION
+type _AddCardDownPayload {
+  from: Card
+  to: Card
+}
+
+type _AddDiscordUserSkillsPayload {
+  from: DiscordUser
+  to: Tag
+}
+
+type _AddGroupPersonsPayload {
+  from: Person
+  to: Group
+}
+
+type _AddLinkObjectsPayload {
+  from: Link
+  to: Object
+}
+
+type _AddObjectPersonsPayload {
+  from: Person
+  to: Object
+}
+
+type _AddObjectRepsPayload {
+  from: Link
+  to: Object
+}
+
+type _AddPersonGroupsPayload {
+  from: Person
+  to: Group
+}
+
+type _AddPersonObjectsPayload {
+  from: Person
+  to: Object
+}
+
+type _AddTagPeoplePayload {
+  from: Tag
+  to: DiscordUser
+}
+
+input _AssociationFilter {
+  AND: [_AssociationFilter!]
+  OR: [_AssociationFilter!]
+}
+
+input _BlobFilter {
+  AND: [_BlobFilter!]
+  OR: [_BlobFilter!]
+  cid: ID
+  cid_not: ID
+  cid_in: [ID!]
+  cid_not_in: [ID!]
+  cid_contains: ID
+  cid_not_contains: ID
+  cid_starts_with: ID
+  cid_not_starts_with: ID
+  cid_ends_with: ID
+  cid_not_ends_with: ID
+  data: String
+  data_not: String
+  data_in: [String!]
+  data_not_in: [String!]
+  data_contains: String
+  data_not_contains: String
+  data_starts_with: String
+  data_not_starts_with: String
+  data_ends_with: String
+  data_not_ends_with: String
+}
+
+input _BlobInput {
+  cid: ID!
+}
+
+enum _BlobOrdering {
+  cid_asc
+  cid_desc
+  data_asc
+  data_desc
+}
+
+input _BookClubLectureFilter {
+  AND: [_BookClubLectureFilter!]
+  OR: [_BookClubLectureFilter!]
+  book: String
+  book_not: String
+  book_in: [String!]
+  book_not_in: [String!]
+  book_contains: String
+  book_not_contains: String
+  book_starts_with: String
+  book_not_starts_with: String
+  book_ends_with: String
+  book_not_ends_with: String
+  chapterName: String
+  chapterName_not: String
+  chapterName_in: [String!]
+  chapterName_not_in: [String!]
+  chapterName_contains: String
+  chapterName_not_contains: String
+  chapterName_starts_with: String
+  chapterName_not_starts_with: String
+  chapterName_ends_with: String
+  chapterName_not_ends_with: String
+  chapterDescription: String
+  chapterDescription_not: String
+  chapterDescription_in: [String!]
+  chapterDescription_not_in: [String!]
+  chapterDescription_contains: String
+  chapterDescription_not_contains: String
+  chapterDescription_starts_with: String
+  chapterDescription_not_starts_with: String
+  chapterDescription_ends_with: String
+  chapterDescription_not_ends_with: String
+  imageURL: String
+  imageURL_not: String
+  imageURL_in: [String!]
+  imageURL_not_in: [String!]
+  imageURL_contains: String
+  imageURL_not_contains: String
+  imageURL_starts_with: String
+  imageURL_not_starts_with: String
+  imageURL_ends_with: String
+  imageURL_not_ends_with: String
+}
+
+input _BookClubLectureInput {
+  book: String!
+}
+
+enum _BookClubLectureOrdering {
+  book_asc
+  book_desc
+  chapterName_asc
+  chapterName_desc
+  chapterDescription_asc
+  chapterDescription_desc
+  imageURL_asc
+  imageURL_desc
+  _id_asc
+  _id_desc
+}
+
+input _CardFilter {
+  AND: [_CardFilter!]
+  OR: [_CardFilter!]
+  cid: ID
+  cid_not: ID
+  cid_in: [ID!]
+  cid_not_in: [ID!]
+  cid_contains: ID
+  cid_not_contains: ID
+  cid_starts_with: ID
+  cid_not_starts_with: ID
+  cid_ends_with: ID
+  cid_not_ends_with: ID
+  data: String
+  data_not: String
+  data_in: [String!]
+  data_not_in: [String!]
+  data_contains: String
+  data_not_contains: String
+  data_starts_with: String
+  data_not_starts_with: String
+  data_ends_with: String
+  data_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+  down: _CardFilter
+  down_not: _CardFilter
+  down_in: [_CardFilter!]
+  down_not_in: [_CardFilter!]
+  down_some: _CardFilter
+  down_none: _CardFilter
+  down_single: _CardFilter
+  down_every: _CardFilter
+}
+
+input _CardInput {
+  cid: ID!
+}
+
+enum _CardOrdering {
+  cid_asc
+  cid_desc
+  data_asc
+  data_desc
+  author_asc
+  author_desc
+  _id_asc
+  _id_desc
+}
+
+input _CommitFilter {
+  AND: [_CommitFilter!]
+  OR: [_CommitFilter!]
+  cid: ID
+  cid_not: ID
+  cid_in: [ID!]
+  cid_not_in: [ID!]
+  cid_contains: ID
+  cid_not_contains: ID
+  cid_starts_with: ID
+  cid_not_starts_with: ID
+  cid_ends_with: ID
+  cid_not_ends_with: ID
+  data: String
+  data_not: String
+  data_in: [String!]
+  data_not_in: [String!]
+  data_contains: String
+  data_not_contains: String
+  data_starts_with: String
+  data_not_starts_with: String
+  data_ends_with: String
+  data_not_ends_with: String
+  author: String
+  author_not: String
+  author_in: [String!]
+  author_not_in: [String!]
+  author_contains: String
+  author_not_contains: String
+  author_starts_with: String
+  author_not_starts_with: String
+  author_ends_with: String
+  author_not_ends_with: String
+}
+
+input _CommitInput {
+  cid: ID!
+}
+
+enum _CommitOrdering {
+  cid_asc
+  cid_desc
+  data_asc
+  data_desc
+  author_asc
+  author_desc
+  _id_asc
+  _id_desc
+}
+
+input _DiscordUserFilter {
+  AND: [_DiscordUserFilter!]
+  OR: [_DiscordUserFilter!]
+  id: String
+  id_not: String
+  id_in: [String!]
+  id_not_in: [String!]
+  id_contains: String
+  id_not_contains: String
+  id_starts_with: String
+  id_not_starts_with: String
+  id_ends_with: String
+  id_not_ends_with: String
+  username: String
+  username_not: String
+  username_in: [String!]
+  username_not_in: [String!]
+  username_contains: String
+  username_not_contains: String
+  username_starts_with: String
+  username_not_starts_with: String
+  username_ends_with: String
+  username_not_ends_with: String
+  discriminator: String
+  discriminator_not: String
+  discriminator_in: [String!]
+  discriminator_not_in: [String!]
+  discriminator_contains: String
+  discriminator_not_contains: String
+  discriminator_starts_with: String
+  discriminator_not_starts_with: String
+  discriminator_ends_with: String
+  discriminator_not_ends_with: String
+  avatar: String
+  avatar_not: String
+  avatar_in: [String!]
+  avatar_not_in: [String!]
+  avatar_contains: String
+  avatar_not_contains: String
+  avatar_starts_with: String
+  avatar_not_starts_with: String
+  avatar_ends_with: String
+  avatar_not_ends_with: String
+  bump: Boolean
+  bump_not: Boolean
+  bumped: Int
+  bumped_not: Int
+  bumped_in: [Int!]
+  bumped_not_in: [Int!]
+  bumped_lt: Int
+  bumped_lte: Int
+  bumped_gt: Int
+  bumped_gte: Int
+  skills: _TagFilter
+  skills_not: _TagFilter
+  skills_in: [_TagFilter!]
+  skills_not_in: [_TagFilter!]
+  skills_some: _TagFilter
+  skills_none: _TagFilter
+  skills_single: _TagFilter
+  skills_every: _TagFilter
+}
+
+input _DiscordUserInput {
+  id: String!
+}
+
+enum _DiscordUserOrdering {
+  id_asc
+  id_desc
+  username_asc
+  username_desc
+  discriminator_asc
+  discriminator_desc
+  avatar_asc
+  avatar_desc
+  bump_asc
+  bump_desc
+  bumped_asc
+  bumped_desc
+  _id_asc
+  _id_desc
+}
+
+input _GroupFilter {
+  AND: [_GroupFilter!]
+  OR: [_GroupFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  persons: _PersonFilter
+  persons_not: _PersonFilter
+  persons_in: [_PersonFilter!]
+  persons_not_in: [_PersonFilter!]
+  persons_some: _PersonFilter
+  persons_none: _PersonFilter
+  persons_single: _PersonFilter
+  persons_every: _PersonFilter
+}
+
+input _GroupInput {
+  name: String!
+}
+
+enum _GroupOrdering {
+  name_asc
+  name_desc
+  _id_asc
+  _id_desc
+}
+
+input _LinkFilter {
+  AND: [_LinkFilter!]
+  OR: [_LinkFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  loc: String
+  loc_not: String
+  loc_in: [String!]
+  loc_not_in: [String!]
+  loc_contains: String
+  loc_not_contains: String
+  loc_starts_with: String
+  loc_not_starts_with: String
+  loc_ends_with: String
+  loc_not_ends_with: String
+  objects: _ObjectFilter
+  objects_not: _ObjectFilter
+  objects_in: [_ObjectFilter!]
+  objects_not_in: [_ObjectFilter!]
+  objects_some: _ObjectFilter
+  objects_none: _ObjectFilter
+  objects_single: _ObjectFilter
+  objects_every: _ObjectFilter
+}
+
+input _LinkInput {
+  name: String!
+}
+
+enum _LinkOrdering {
+  name_asc
+  name_desc
+  loc_asc
+  loc_desc
+  _id_asc
+  _id_desc
+}
+
+type _MergeCardDownPayload {
+  from: Card
+  to: Card
+}
+
+type _MergeDiscordUserSkillsPayload {
+  from: DiscordUser
+  to: Tag
+}
+
+type _MergeGroupPersonsPayload {
+  from: Person
+  to: Group
+}
+
+type _MergeLinkObjectsPayload {
+  from: Link
+  to: Object
+}
+
+type _MergeObjectPersonsPayload {
+  from: Person
+  to: Object
+}
+
+type _MergeObjectRepsPayload {
+  from: Link
+  to: Object
+}
+
+type _MergePersonGroupsPayload {
+  from: Person
+  to: Group
+}
+
+type _MergePersonObjectsPayload {
+  from: Person
+  to: Object
+}
+
+type _MergeTagPeoplePayload {
+  from: Tag
+  to: DiscordUser
+}
+
+type _Neo4jDate {
+  year: Int
+  month: Int
+  day: Int
+  formatted: String
+}
+
+input _Neo4jDateInput {
+  year: Int
+  month: Int
+  day: Int
+  formatted: String
+}
+
+type _Neo4jDateTime {
+  year: Int
+  month: Int
+  day: Int
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  timezone: String
+  formatted: String
+}
+
+input _Neo4jDateTimeInput {
+  year: Int
+  month: Int
+  day: Int
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  timezone: String
+  formatted: String
+}
+
+type _Neo4jLocalDateTime {
+  year: Int
+  month: Int
+  day: Int
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  formatted: String
+}
+
+input _Neo4jLocalDateTimeInput {
+  year: Int
+  month: Int
+  day: Int
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  formatted: String
+}
+
+type _Neo4jLocalTime {
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  formatted: String
+}
+
+input _Neo4jLocalTimeInput {
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  formatted: String
+}
+
+type _Neo4jPoint {
+  x: Float
+  y: Float
+  z: Float
+  longitude: Float
+  latitude: Float
+  height: Float
+  crs: String
+  srid: Int
+}
+
+input _Neo4jPointDistanceFilter {
+  point: _Neo4jPointInput!
+  distance: Float!
+}
+
+input _Neo4jPointInput {
+  x: Float
+  y: Float
+  z: Float
+  longitude: Float
+  latitude: Float
+  height: Float
+  crs: String
+  srid: Int
+}
+
+type _Neo4jTime {
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  timezone: String
+  formatted: String
+}
+
+input _Neo4jTimeInput {
+  hour: Int
+  minute: Int
+  second: Int
+  millisecond: Int
+  microsecond: Int
+  nanosecond: Int
+  timezone: String
+  formatted: String
+}
+
+input _NodeFilter {
+  AND: [_NodeFilter!]
+  OR: [_NodeFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+}
+
+input _NodeInput {
+  name: String!
+}
+
+enum _NodeOrdering {
+  name_asc
+  name_desc
+}
+
+input _ObjectFilter {
+  AND: [_ObjectFilter!]
+  OR: [_ObjectFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  unix: Int
+  unix_not: Int
+  unix_in: [Int!]
+  unix_not_in: [Int!]
+  unix_lt: Int
+  unix_lte: Int
+  unix_gt: Int
+  unix_gte: Int
+  persons: _PersonFilter
+  persons_not: _PersonFilter
+  persons_in: [_PersonFilter!]
+  persons_not_in: [_PersonFilter!]
+  persons_some: _PersonFilter
+  persons_none: _PersonFilter
+  persons_single: _PersonFilter
+  persons_every: _PersonFilter
+  reps: _LinkFilter
+  reps_not: _LinkFilter
+  reps_in: [_LinkFilter!]
+  reps_not_in: [_LinkFilter!]
+  reps_some: _LinkFilter
+  reps_none: _LinkFilter
+  reps_single: _LinkFilter
+  reps_every: _LinkFilter
+}
+
+input _ObjectInput {
+  name: String!
+}
+
+enum _ObjectOrdering {
+  name_asc
+  name_desc
+  unix_asc
+  unix_desc
+  _id_asc
+  _id_desc
+}
+
+input _ParagraphFilter {
+  AND: [_ParagraphFilter!]
+  OR: [_ParagraphFilter!]
+  cid: ID
+  cid_not: ID
+  cid_in: [ID!]
+  cid_not_in: [ID!]
+  cid_contains: ID
+  cid_not_contains: ID
+  cid_starts_with: ID
+  cid_not_starts_with: ID
+  cid_ends_with: ID
+  cid_not_ends_with: ID
+  data: String
+  data_not: String
+  data_in: [String!]
+  data_not_in: [String!]
+  data_contains: String
+  data_not_contains: String
+  data_starts_with: String
+  data_not_starts_with: String
+  data_ends_with: String
+  data_not_ends_with: String
+}
+
+input _ParagraphInput {
+  cid: ID!
+}
+
+enum _ParagraphOrdering {
+  cid_asc
+  cid_desc
+  data_asc
+  data_desc
+  _id_asc
+  _id_desc
+}
+
+input _PersonFilter {
+  AND: [_PersonFilter!]
+  OR: [_PersonFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  picture: String
+  picture_not: String
+  picture_in: [String!]
+  picture_not_in: [String!]
+  picture_contains: String
+  picture_not_contains: String
+  picture_starts_with: String
+  picture_not_starts_with: String
+  picture_ends_with: String
+  picture_not_ends_with: String
+  info: String
+  info_not: String
+  info_in: [String!]
+  info_not_in: [String!]
+  info_contains: String
+  info_not_contains: String
+  info_starts_with: String
+  info_not_starts_with: String
+  info_ends_with: String
+  info_not_ends_with: String
+  objects: _ObjectFilter
+  objects_not: _ObjectFilter
+  objects_in: [_ObjectFilter!]
+  objects_not_in: [_ObjectFilter!]
+  objects_some: _ObjectFilter
+  objects_none: _ObjectFilter
+  objects_single: _ObjectFilter
+  objects_every: _ObjectFilter
+  groups: _GroupFilter
+  groups_not: _GroupFilter
+  groups_in: [_GroupFilter!]
+  groups_not_in: [_GroupFilter!]
+  groups_some: _GroupFilter
+  groups_none: _GroupFilter
+  groups_single: _GroupFilter
+  groups_every: _GroupFilter
+}
+
+input _PersonInput {
+  name: String!
+}
+
+enum _PersonOrdering {
+  name_asc
+  name_desc
+  picture_asc
+  picture_desc
+  info_asc
+  info_desc
+  _id_asc
+  _id_desc
+}
+
+input _PortalEpisodeFilter {
+  AND: [_PortalEpisodeFilter!]
+  OR: [_PortalEpisodeFilter!]
+  title: String
+  title_not: String
+  title_in: [String!]
+  title_not_in: [String!]
+  title_contains: String
+  title_not_contains: String
+  title_starts_with: String
+  title_not_starts_with: String
+  title_ends_with: String
+  title_not_ends_with: String
+  guest: String
+  guest_not: String
+  guest_in: [String!]
+  guest_not_in: [String!]
+  guest_contains: String
+  guest_not_contains: String
+  guest_starts_with: String
+  guest_not_starts_with: String
+  guest_ends_with: String
+  guest_not_ends_with: String
+  date: String
+  date_not: String
+  date_in: [String!]
+  date_not_in: [String!]
+  date_contains: String
+  date_not_contains: String
+  date_starts_with: String
+  date_not_starts_with: String
+  date_ends_with: String
+  date_not_ends_with: String
+  episodeNumber: Int
+  episodeNumber_not: Int
+  episodeNumber_in: [Int!]
+  episodeNumber_not_in: [Int!]
+  episodeNumber_lt: Int
+  episodeNumber_lte: Int
+  episodeNumber_gt: Int
+  episodeNumber_gte: Int
+  description: String
+  description_not: String
+  description_in: [String!]
+  description_not_in: [String!]
+  description_contains: String
+  description_not_contains: String
+  description_starts_with: String
+  description_not_starts_with: String
+  description_ends_with: String
+  description_not_ends_with: String
+  imageURL: String
+  imageURL_not: String
+  imageURL_in: [String!]
+  imageURL_not_in: [String!]
+  imageURL_contains: String
+  imageURL_not_contains: String
+  imageURL_starts_with: String
+  imageURL_not_starts_with: String
+  imageURL_ends_with: String
+  imageURL_not_ends_with: String
+}
+
+input _PortalEpisodeInput {
+  title: String!
+}
+
+enum _PortalEpisodeOrdering {
+  title_asc
+  title_desc
+  guest_asc
+  guest_desc
+  date_asc
+  date_desc
+  episodeNumber_asc
+  episodeNumber_desc
+  description_asc
+  description_desc
+  imageURL_asc
+  imageURL_desc
+  _id_asc
+  _id_desc
+}
+
+enum _RelationDirections {
+  IN
+  OUT
+}
+
+type _RemoveCardDownPayload {
+  from: Card
+  to: Card
+}
+
+type _RemoveDiscordUserSkillsPayload {
+  from: DiscordUser
+  to: Tag
+}
+
+type _RemoveGroupPersonsPayload {
+  from: Person
+  to: Group
+}
+
+type _RemoveLinkObjectsPayload {
+  from: Link
+  to: Object
+}
+
+type _RemoveObjectPersonsPayload {
+  from: Person
+  to: Object
+}
+
+type _RemoveObjectRepsPayload {
+  from: Link
+  to: Object
+}
+
+type _RemovePersonGroupsPayload {
+  from: Person
+  to: Group
+}
+
+type _RemovePersonObjectsPayload {
+  from: Person
+  to: Object
+}
+
+type _RemoveTagPeoplePayload {
+  from: Tag
+  to: DiscordUser
+}
+
+input _TagFilter {
+  AND: [_TagFilter!]
+  OR: [_TagFilter!]
+  name: String
+  name_not: String
+  name_in: [String!]
+  name_not_in: [String!]
+  name_contains: String
+  name_not_contains: String
+  name_starts_with: String
+  name_not_starts_with: String
+  name_ends_with: String
+  name_not_ends_with: String
+  people: _DiscordUserFilter
+  people_not: _DiscordUserFilter
+  people_in: [_DiscordUserFilter!]
+  people_not_in: [_DiscordUserFilter!]
+  people_some: _DiscordUserFilter
+  people_none: _DiscordUserFilter
+  people_single: _DiscordUserFilter
+  people_every: _DiscordUserFilter
+}
+
+input _TagInput {
+  name: String!
+}
+
+enum _TagOrdering {
+  name_asc
+  name_desc
+  degree_asc
+  degree_desc
+  _id_asc
+  _id_desc
+}
+
+input _TimeFilter {
+  AND: [_TimeFilter!]
+  OR: [_TimeFilter!]
+  unix: Int
+  unix_not: Int
+  unix_in: [Int!]
+  unix_not_in: [Int!]
+  unix_lt: Int
+  unix_lte: Int
+  unix_gt: Int
+  unix_gte: Int
+}
+
+input _TimeInput {
+  unix: Int!
+}
+
+enum _TimeOrdering {
+  unix_asc
+  unix_desc
+}
+
+interface Association {
+  persons(
+    first: Int
+    offset: Int
+    orderBy: [_PersonOrdering]
+    filter: _PersonFilter
+  ): [Person]
+}
+
+interface Blob {
+  cid: ID!
+  data: String!
+}
+
+type BookClubLecture {
+  book: String!
+  chapterName: String!
+  chapterDescription: String!
+  imageURL: String
+  _id: String
+}
+
+type Card {
+  cid: ID!
+  data: String!
+  parent(filter: _CardFilter): Card
+  author: String
+  down(
+    first: Int
+    offset: Int
+    orderBy: [_CardOrdering]
+    filter: _CardFilter
+  ): [Card]
+  _id: String
+}
+
+type Commit implements Blob {
+  cid: ID!
+  data: String!
+  parent(filter: _CommitFilter): Commit
+  merge(filter: _CommitFilter): Commit
+  tree(
+    first: Int
+    offset: Int
+    orderBy: [_BlobOrdering]
+    filter: _BlobFilter
+  ): [Blob]
+  author: String
+  message(filter: _ParagraphFilter): Paragraph
+  _id: String
+}
+
+type DiscordUser {
+  id: String!
+  username: String!
+  discriminator: String!
+  avatar: String!
+  bump: Boolean
+  bumped: Int
+  skills(
+    first: Int
+    offset: Int
+    orderBy: [_TagOrdering]
+    filter: _TagFilter
+  ): [Tag]
+  _id: String
+}
+
+type Group implements Node, Association {
+  name: String!
+  persons(
+    first: Int
+    offset: Int
+    orderBy: [_PersonOrdering]
+    filter: _PersonFilter
+  ): [Person]
+  _id: String
+}
+
+type Link implements Node {
+  name: String!
+  loc: String!
+  objects(
+    first: Int
+    offset: Int
+    orderBy: [_ObjectOrdering]
+    filter: _ObjectFilter
+  ): [Object]
+  _id: String
+}
+
+type Mutation {
+  CreatePerson(name: String!): Person
+  DeletePerson(name: String!): Boolean
+  UpdatePerson(
+    name: String!
+    picture: String = null
+    info: String = null
+  ): Person
+  CreateObject(name: String!, unix: Int!): Object
+  DeleteObject(id: Int!): Boolean
+  CreateObjectWithInvolved(name: String!, unix: Int!, names: [String]): Object
+  CreateInvolvedEdge(personId: Int!, objectId: Int!): Boolean
+  UpdateObject(id: Int!, name: String = null, unix: Int = null): Object
+  RemoveInvolved(personId: Int!, objectId: Int): Boolean
+  CreateMember(personId: Int!, groupId: Int): Boolean
+  RemoveMember(personId: Int!, groupId: Int): Boolean
+  CreateLink(name: String!, loc: String!): Link
+  UpdateLink(id: Int!, name: String = null, loc: String = null): Link
+  DeleteLink(id: Int!): Boolean
+  Represents(thisId: Int!, thatId: Int!): Boolean
+  RemoveRepresents(thisId: Int!, thatId: Int!): Boolean
+  CreateCard(data: String!): Card
+  CreateUserSkill(id: String!, name: String!): DiscordUser
+  RemoveUserSkill(id: String!, name: String!): DiscordUser
+  AddGroupPersons(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _AddGroupPersonsPayload
+  RemoveGroupPersons(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _RemoveGroupPersonsPayload
+  MergeGroupPersons(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _MergeGroupPersonsPayload
+  CreateGroup(name: String!): Group
+  DeleteGroup(name: String!): Group
+  AddPersonObjects(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _AddPersonObjectsPayload
+  RemovePersonObjects(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _RemovePersonObjectsPayload
+  MergePersonObjects(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _MergePersonObjectsPayload
+  AddPersonGroups(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _AddPersonGroupsPayload
+  RemovePersonGroups(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _RemovePersonGroupsPayload
+  MergePersonGroups(
+    from: _PersonInput!
+    to: _GroupInput!
+  ): _MergePersonGroupsPayload
+  MergePerson(name: String!, picture: String, info: String): Person
+  AddCardDown(from: _CardInput!, to: _CardInput!): _AddCardDownPayload
+  RemoveCardDown(from: _CardInput!, to: _CardInput!): _RemoveCardDownPayload
+  MergeCardDown(from: _CardInput!, to: _CardInput!): _MergeCardDownPayload
+  UpdateCard(cid: ID!, data: String, author: String): Card
+  DeleteCard(cid: ID!): Card
+  MergeCard(cid: ID!, data: String, author: String): Card
+  AddObjectPersons(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _AddObjectPersonsPayload
+  RemoveObjectPersons(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _RemoveObjectPersonsPayload
+  MergeObjectPersons(
+    from: _PersonInput!
+    to: _ObjectInput!
+  ): _MergeObjectPersonsPayload
+  AddObjectReps(from: _LinkInput!, to: _ObjectInput!): _AddObjectRepsPayload
+  RemoveObjectReps(
+    from: _LinkInput!
+    to: _ObjectInput!
+  ): _RemoveObjectRepsPayload
+  MergeObjectReps(from: _LinkInput!, to: _ObjectInput!): _MergeObjectRepsPayload
+  MergeObject(name: String!, unix: Int): Object
+  AddLinkObjects(from: _LinkInput!, to: _ObjectInput!): _AddLinkObjectsPayload
+  RemoveLinkObjects(
+    from: _LinkInput!
+    to: _ObjectInput!
+  ): _RemoveLinkObjectsPayload
+  MergeLinkObjects(
+    from: _LinkInput!
+    to: _ObjectInput!
+  ): _MergeLinkObjectsPayload
+  MergeLink(name: String!, loc: String): Link
+  AddDiscordUserSkills(
+    from: _DiscordUserInput!
+    to: _TagInput!
+  ): _AddDiscordUserSkillsPayload
+  RemoveDiscordUserSkills(
+    from: _DiscordUserInput!
+    to: _TagInput!
+  ): _RemoveDiscordUserSkillsPayload
+  MergeDiscordUserSkills(
+    from: _DiscordUserInput!
+    to: _TagInput!
+  ): _MergeDiscordUserSkillsPayload
+  CreateDiscordUser(
+    id: String!
+    username: String!
+    discriminator: String!
+    avatar: String!
+    bump: Boolean
+    bumped: Int
+  ): DiscordUser
+  UpdateDiscordUser(
+    id: String!
+    username: String
+    discriminator: String
+    avatar: String
+    bump: Boolean
+    bumped: Int
+  ): DiscordUser
+  DeleteDiscordUser(id: String!): DiscordUser
+  MergeDiscordUser(
+    id: String!
+    username: String
+    discriminator: String
+    avatar: String
+    bump: Boolean
+    bumped: Int
+  ): DiscordUser
+  AddTagPeople(from: _TagInput!, to: _DiscordUserInput!): _AddTagPeoplePayload
+  RemoveTagPeople(
+    from: _TagInput!
+    to: _DiscordUserInput!
+  ): _RemoveTagPeoplePayload
+  MergeTagPeople(
+    from: _TagInput!
+    to: _DiscordUserInput!
+  ): _MergeTagPeoplePayload
+  CreateTag(name: String!): Tag
+  DeleteTag(name: String!): Tag
+  CreateCommit(cid: ID, data: String!, author: String): Commit
+  UpdateCommit(cid: ID!, data: String, author: String): Commit
+  DeleteCommit(cid: ID!): Commit
+  MergeCommit(cid: ID!, data: String, author: String): Commit
+  CreateParagraph(cid: ID, data: String!): Paragraph
+  UpdateParagraph(cid: ID!, data: String): Paragraph
+  DeleteParagraph(cid: ID!): Paragraph
+  MergeParagraph(cid: ID!, data: String): Paragraph
+  CreateBookClubLecture(
+    book: String!
+    chapterName: String!
+    chapterDescription: String!
+    imageURL: String
+  ): BookClubLecture
+  UpdateBookClubLecture(
+    book: String!
+    chapterName: String
+    chapterDescription: String
+    imageURL: String
+  ): BookClubLecture
+  DeleteBookClubLecture(book: String!): BookClubLecture
+  MergeBookClubLecture(
+    book: String!
+    chapterName: String
+    chapterDescription: String
+    imageURL: String
+  ): BookClubLecture
+  CreatePortalEpisode(
+    title: String!
+    guest: String
+    date: String!
+    episodeNumber: Int!
+    description: String
+    imageURL: String
+  ): PortalEpisode
+  UpdatePortalEpisode(
+    title: String!
+    guest: String
+    date: String
+    episodeNumber: Int
+    description: String
+    imageURL: String
+  ): PortalEpisode
+  DeletePortalEpisode(title: String!): PortalEpisode
+  MergePortalEpisode(
+    title: String!
+    guest: String
+    date: String
+    episodeNumber: Int
+    description: String
+    imageURL: String
+  ): PortalEpisode
+}
+
+interface Node {
+  name: String!
+}
+
+type Object implements Node, Time {
+  name: String!
+  unix: Int!
+  persons(
+    first: Int
+    offset: Int
+    orderBy: [_PersonOrdering]
+    filter: _PersonFilter
+  ): [Person]
+  reps(
+    first: Int
+    offset: Int
+    orderBy: [_LinkOrdering]
+    filter: _LinkFilter
+  ): [Link]
+  _id: String
+}
+
+type Paragraph implements Blob {
+  cid: ID!
+  data: String!
+  _id: String
+}
+
+type Person {
+  name: String!
+  picture: String
+  info: String
+  objects(
+    first: Int
+    offset: Int
+    orderBy: [_ObjectOrdering]
+    filter: _ObjectFilter
+  ): [Object]
+  groups(
+    first: Int
+    offset: Int
+    orderBy: [_GroupOrdering]
+    filter: _GroupFilter
+  ): [Group]
+  _id: String
+}
+
+type PortalEpisode {
+  title: String!
+  guest: String
+  date: String!
+  episodeNumber: Int!
+  description: String
+  imageURL: String
+  _id: String
+}
+
+type Query {
+  Node(
+    name: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_NodeOrdering]
+    filter: _NodeFilter
+  ): [Node]
+  Time(
+    unix: Int
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_TimeOrdering]
+    filter: _TimeFilter
+  ): [_Neo4jTime]
+  Association(
+    _id: String
+    first: Int
+    offset: Int
+    filter: _AssociationFilter
+  ): [Association]
+  Group(
+    name: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_GroupOrdering]
+    filter: _GroupFilter
+  ): [Group]
+  Person(
+    name: String
+    picture: String
+    info: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_PersonOrdering]
+    filter: _PersonFilter
+  ): [Person]
+  Card(
+    cid: ID
+    data: String
+    author: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_CardOrdering]
+    filter: _CardFilter
+  ): [Card]
+  Object(
+    name: String
+    unix: Int
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_ObjectOrdering]
+    filter: _ObjectFilter
+  ): [Object]
+  Link(
+    name: String
+    loc: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_LinkOrdering]
+    filter: _LinkFilter
+  ): [Link]
+  DiscordUser(
+    id: String
+    username: String
+    discriminator: String
+    avatar: String
+    bump: Boolean
+    bumped: Int
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_DiscordUserOrdering]
+    filter: _DiscordUserFilter
+  ): [DiscordUser]
+  Tag(
+    name: String
+    degree: Int
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_TagOrdering]
+    filter: _TagFilter
+  ): [Tag]
+  Commit(
+    cid: ID
+    data: String
+    author: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_CommitOrdering]
+    filter: _CommitFilter
+  ): [Commit]
+  Blob(
+    cid: ID
+    data: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_BlobOrdering]
+    filter: _BlobFilter
+  ): [Blob]
+  Paragraph(
+    cid: ID
+    data: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_ParagraphOrdering]
+    filter: _ParagraphFilter
+  ): [Paragraph]
+  BookClubLecture(
+    book: String
+    chapterName: String
+    chapterDescription: String
+    imageURL: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_BookClubLectureOrdering]
+    filter: _BookClubLectureFilter
+  ): [BookClubLecture]
+  PortalEpisode(
+    title: String
+    guest: String
+    date: String
+    episodeNumber: Int
+    description: String
+    imageURL: String
+    _id: String
+    first: Int
+    offset: Int
+    orderBy: [_PortalEpisodeOrdering]
+    filter: _PortalEpisodeFilter
+  ): [PortalEpisode]
+}
+
+type Tag {
+  name: String!
+  degree: Int!
+  people(
+    first: Int
+    offset: Int
+    orderBy: [_DiscordUserOrdering]
+    filter: _DiscordUserFilter
+  ): [DiscordUser]
+  _id: String
+}
+
+interface Time {
+  unix: Int!
+}
+
