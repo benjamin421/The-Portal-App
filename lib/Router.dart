@@ -1,4 +1,4 @@
-import 'package:fiber/UI/SplashScreen.dart';
+import 'package:fiber/UI/View/SplashScreen.dart';
 import 'package:fiber/UI/TabBar/RootTabBar.dart';
 import 'package:flutter/material.dart';
 

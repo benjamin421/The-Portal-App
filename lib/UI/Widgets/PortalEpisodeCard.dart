@@ -1,3 +1,4 @@
+import 'package:fiber/UI/View/PodcastPageView.dart';
 import 'package:flutter/material.dart';
 import '../../Models/PortalEpisode.dart';
 
@@ -14,7 +15,12 @@ class _EpisodeListState extends State<PortalEpisodeCard> {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () => Navigator.of(context).push(
+        MaterialPageRoute(
+            builder: (context) => PodcastPageView(
+                  episode: widget.episode,
+                )),
+      ),
       child: Padding(
         padding: const EdgeInsets.symmetric(vertical: 16.0),
         child: Row(
