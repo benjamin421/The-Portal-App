@@ -1,11 +1,14 @@
 import 'package:fiber/Core/Helpers/DialogManager.dart';
 import 'package:fiber/Models/PortalEpisode.dart';
+import 'package:fiber/Models/WPBlog.dart';
 import 'package:fiber/Router.dart';
 import 'package:flutter/material.dart';
 import 'Core/Helpers/Locator.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
 import 'package:fiber/Core/Services/EpisodeService.dart';
+import 'package:fiber/Core/Services/PortalBlogService.dart';
+
 import 'package:fiber/Core/Services/NavigationService.dart';
 import 'package:fiber/Core/Services/AppService.dart';
 
@@ -51,6 +54,10 @@ class _FiberAppState extends State<Fiber> {
         StreamProvider<List<PortalEpisode>>(
           initialData: <PortalEpisode>[],
           create: (_) => locator<EpisodesService>().episodesController.stream,
+        ),
+        StreamProvider<List<WpBlog>>(
+          initialData: <WpBlog>[],
+          create: (_) => locator<PortalBlogService>().blogsController.stream,
         ),
       ],
       child: Consumer<App>(

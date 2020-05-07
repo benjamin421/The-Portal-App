@@ -1,4 +1,5 @@
 import 'package:fiber/Models/PortalEpisode.dart';
+import 'package:fiber/Models/WPBlog.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -20,7 +21,28 @@ class DataProvider {
     eps.forEach((episode) {
       episodes.add(PortalEpisode.fromJson(episode));
     });
-    print(eps);
     return episodes;
+  }
+
+  Future<List<WpBlog>> getPortalBlogs(int page) async {
+    List<WpBlog> blogPosts = [];
+    final url =
+        'https://blog.theportal.wiki/wp-json/wp/v2/posts?&category=2&page=$page';
+
+    final response =
+        await http.get(url, headers: {'Accept': 'application/json'});
+    final responseData = json.decode(response.body);
+    print(responseData);
+
+    List<dynamic> blogs = responseData;
+
+    if (blogs.length == 0) {
+      return null;
+    }
+    blogs.forEach((post) {
+      blogPosts.add(WpBlog.fromJson(post));
+    });
+
+    return blogPosts;
   }
 }

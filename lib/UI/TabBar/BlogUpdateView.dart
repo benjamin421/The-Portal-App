@@ -1,5 +1,5 @@
 import 'package:fiber/Networking/DashboardItemDataProvider.dart';
-import 'package:fiber/UI/TabBar/BlogWebView.dart';
+import 'package:fiber/UI/View/BlogWebView.dart';
 import 'package:fiber/UI/Widgets/BlogCard.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';

@@ -1,9 +1,11 @@
 import 'package:fiber/UI/TabBar/Dashboard.dart';
 import 'package:fiber/UI/TabBar/PodcastListView.dart';
+import 'package:fiber/UI/TabBar/PortalBlogsView.dart';
 import 'package:fiber/UI/TabBar/ProfileView.dart';
 import 'package:fiber/UI/Widgets/TabItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../../TabBar/Dashboard/BlogUpdateView.dart';
 import '../Style.dart';
 
 class RootTabBar extends StatefulWidget {
@@ -14,7 +16,7 @@ class RootTabBar extends StatefulWidget {
 class _RootTabBarState extends State<RootTabBar> {
   List<Widget> tabViews = [
     PodcastListView(),
-    PodcastListView(),
+    PortalBlogTab(),
     PodcastListView(),
     ProfileView()
   ];
@@ -29,35 +31,40 @@ class _RootTabBarState extends State<RootTabBar> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              Text('FIBER', style: Style.screenTitleStyle),
+              Text('THE PORTAL', style: Style.screenTitleStyle),
               Visibility(
                 visible: true,
-                child: Text('A PORTAL APP', style: Style.screenSubtitleStyle),
+                child: Text('OFFICIAL APP', style: Style.screenSubtitleStyle),
               )
             ],
           ),
           backgroundColor: Style.backgroungColor,
         ),
         bottomSheet: TabBar(
+          indicatorColor: Style.primaryColor,
+          unselectedLabelColor: Colors.redAccent,
+          indicator: ShapeDecoration(
+              color: Style.primaryColor,
+              shape: BeveledRectangleBorder(side: BorderSide())),
           tabs: <Widget>[
             TabItem(
-              text: 'HOME',
+              text: 'PODCAST',
               icon: Icon(
-                Icons.home,
+                Icons.rss_feed,
                 color: tabsColor,
               ),
             ),
             TabItem(
-              text: 'PORTAL',
+              text: 'BLOG',
               icon: Icon(
                 Icons.crop_portrait,
                 color: tabsColor,
               ),
             ),
             TabItem(
-              text: 'LIBRARY',
+              text: 'TRIBE',
               icon: Icon(
-                Icons.library_books,
+                Icons.group,
                 color: tabsColor,
               ),
             ),

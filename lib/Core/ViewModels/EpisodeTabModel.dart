@@ -17,7 +17,7 @@ class EpisodeTabModel extends BaseModel {
 
     List<PortalEpisode> eps = await _episodesService.getEpisodes();
     if (eps == null) {
-      errorMessage = "No bookings fetched";
+      errorMessage = "No podcasts fetched";
       setState(ViewState.Idle);
       return;
     }

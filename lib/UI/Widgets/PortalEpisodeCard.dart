@@ -31,7 +31,7 @@ class _EpisodeListState extends State<PortalEpisodeCard> {
                   bottomRight: Radius.circular(15)),
               child: Container(
                 width: 100,
-                height: 80,
+                height: 100,
                 decoration: BoxDecoration(),
                 child: //widget.episode.imageURL != null
                     //? Image.network(widget.episode.imageURL, fit: BoxFit.cover)
