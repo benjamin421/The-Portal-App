@@ -1,5 +1,6 @@
 import 'package:fiber/UI/Style.dart';
 import 'package:flutter/material.dart';
+import '../../Core/Helpers/Functions.dart';
 
 class ProfileView extends StatefulWidget {
   static const routeName = '/profile';
@@ -19,60 +20,78 @@ class _ProfileViewState extends State<ProfileView> {
       child: ListView(
         physics: ClampingScrollPhysics(),
         children: <Widget>[
-          Text(
-            '{{Name from auth}}}}',
-            style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
-          ),
           Column(
             mainAxisSize: MainAxisSize.min,
             children: <Widget>[
-              ListTile(
-                dense: true,
-                title: Text(
-                  'Add Skills to Tower of Folls Maybe?',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Style.tabsColor,
-                      fontSize: 14.0),
-                ),
-                onTap: () {},
+              SizedBox(height: 16),
+              Text(
+                'Hello, you\'ve found The Portal',
+                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 20),
               ),
-              Divider(),
-              ListTile(
-                onTap: () {},
-                dense: true,
-                title: Text(
-                  'Some Other Feature',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      color: Style.tabsColor,
-                      fontSize: 14.0),
+              Container(
+                padding: const EdgeInsets.fromLTRB(12.0, 10.0, 12.0, 16.0),
+                child: Text(
+                  'A podcast hosted by Eric Weinstein, The Portal is a journey of discovery. It is wide ranging and deep diving discussions with distinguished guests from the realms of science, culture and business. Join us as we seek portals that will carry us through the impossible- and beyond.',
+                  textAlign: TextAlign.justify,
                 ),
               ),
               Divider(),
               ListTile(
                 dense: true,
                 title: Text(
-                  'Some Other Feature',
+                  'Subscribe',
                   style: TextStyle(
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w900,
                       color: Style.tabsColor,
                       fontSize: 14.0),
                 ),
-                onTap: () {},
+                onTap: () {
+                  Functions.launchURL('https://ericweinstein.org/');
+                },
               ),
               Divider(),
               ListTile(
-                onTap: () {},
                 dense: true,
                 title: Text(
-                  'Logout',
+                  'Geometric Unity: A First Look',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Style.tabsColor,
+                      fontSize: 14.0),
+                ),
+                onTap: () {
+                  Functions.launchURL(
+                      'https://www.youtube.com/watch?v=Z7rd04KzLcg&feature=youtu.be');
+                },
+              ),
+              Divider(),
+              ListTile(
+                onTap: () {
+                  Functions.launchURL('https://projects.theportal.wiki/');
+                },
+                dense: true,
+                title: Text(
+                  'Portal Projects',
                   style: TextStyle(
                       fontWeight: FontWeight.w600,
                       color: Style.tabsColor,
                       fontSize: 14.0),
                 ),
               ),
+              Divider(),
+              // ListTile(
+              //   onTap: () {
+              //     Functions.launchURL('https://ericweinstein.org/');
+              //   },
+              //   dense: true,
+              //   title: Text(
+              //     'Logout',
+              //     style: TextStyle(
+              //         fontWeight: FontWeight.w600,
+              //         color: Style.tabsColor,
+              //         fontSize: 14.0),
+              //   ),
+              // ),
             ],
           )
         ],

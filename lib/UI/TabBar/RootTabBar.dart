@@ -14,17 +14,12 @@ class RootTabBar extends StatefulWidget {
 }
 
 class _RootTabBarState extends State<RootTabBar> {
-  List<Widget> tabViews = [
-    PodcastListView(),
-    PortalBlogTab(),
-    PodcastListView(),
-    ProfileView()
-  ];
+  List<Widget> tabViews = [PodcastListView(), PortalBlogTab(), ProfileView()];
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 4,
+      length: 3,
       child: Scaffold(
         appBar: AppBar(
           title: Column(
@@ -41,11 +36,9 @@ class _RootTabBarState extends State<RootTabBar> {
           backgroundColor: Style.backgroungColor,
         ),
         bottomSheet: TabBar(
-          indicatorColor: Style.primaryColor,
-          unselectedLabelColor: Colors.redAccent,
-          indicator: ShapeDecoration(
-              color: Style.primaryColor,
-              shape: BeveledRectangleBorder(side: BorderSide())),
+          //unselectedLabelColor: Colors.redAccent,
+          indicatorSize: TabBarIndicatorSize.tab,
+          indicator: BoxDecoration(color: Style.primaryColor),
           tabs: <Widget>[
             TabItem(
               text: 'PODCAST',
@@ -58,13 +51,6 @@ class _RootTabBarState extends State<RootTabBar> {
               text: 'BLOG',
               icon: Icon(
                 Icons.crop_portrait,
-                color: tabsColor,
-              ),
-            ),
-            TabItem(
-              text: 'TRIBE',
-              icon: Icon(
-                Icons.group,
                 color: tabsColor,
               ),
             ),

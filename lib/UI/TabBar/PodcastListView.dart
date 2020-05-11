@@ -36,7 +36,6 @@ class _PodcastListViewState extends State<PodcastListView> {
   Widget build(BuildContext context) {
     return BaseView<EpisodeTabModel>(
       onModelReady: (model) async {
-        print("im here");
         if (Provider.of<List<PortalEpisode>>(context).length == 0)
           model.getEpisodes();
       },

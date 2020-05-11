@@ -27,7 +27,7 @@ class DataProvider {
   Future<List<WpBlog>> getPortalBlogs(int page) async {
     List<WpBlog> blogPosts = [];
     final url =
-        'https://blog.theportal.wiki/wp-json/wp/v2/posts?&category=2&page=$page';
+        'https://blog.theportal.wiki/wp-json/wp/v2/posts?&category=2&page=$page&per_page=100';
 
     final response =
         await http.get(url, headers: {'Accept': 'application/json'});

@@ -2,8 +2,8 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:webview_flutter/webview_flutter.dart';
 import '../Style.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BlogWebView extends StatefulWidget {
   String url;
@@ -32,9 +32,7 @@ class _BlogWebViewState extends State<BlogWebView> {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        leading: BackButton(
-          color: Colors.black
-        ),
+        leading: BackButton(color: Colors.black),
         backgroundColor: Style.backgroungColor,
         title: Text("Blog", style: Style.screenSubtitleStyle),
       ),

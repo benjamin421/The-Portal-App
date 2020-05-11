@@ -26,10 +26,10 @@ class PortalBlogPageView extends StatelessWidget {
             child: PageView.builder(
               controller: PageController(viewportFraction: .76),
               scrollDirection: Axis.horizontal,
-              physics: NeverScrollableScrollPhysics(),
               itemCount: blogs.length,
               itemBuilder: (context, index) => OverlayedContainer(
-                date: '${blogs[index].date?.month.toString()}/${blogs[index].date.day.toString()}/${blogs[index].date.year.toString()}',
+                date:
+                    '${blogs[index].date?.month.toString()}/${blogs[index].date.day.toString()}/${blogs[index].date.year.toString()}',
                 title: blogs[index].title.rendered,
                 onTap: () => Navigator.push(
                     context,

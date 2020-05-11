@@ -20,9 +20,7 @@ class PortalBlogService {
     if (blogs != null) {
       blogsController.add(blogs);
     }
-    print('blogs[0]0000000');
 
-    print(blogs[0].author);
     return blogs;
   }
 }

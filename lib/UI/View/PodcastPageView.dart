@@ -1,8 +1,10 @@
+import 'package:fiber/UI/Widgets/YouTubePlayer.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 import '../../Models/PortalEpisode.dart';
 import '../Style.dart';
+import '../../Core/Helpers/Functions.dart';
 
 class PodcastPageView extends StatelessWidget {
   static const routeName = '/profile';
@@ -22,9 +24,11 @@ class PodcastPageView extends StatelessWidget {
           child: SizedBox(
             height: 48,
             child: FlatButton(
-              onPressed: () {},
+              onPressed: () {
+                Functions.launchURL('https://ericweinstein.org/');
+              },
               child: Text(
-                'Call to Action',
+                'Subscribe',
                 style: TextStyle(color: Style.tabsColor),
               ),
               color: Style.primaryColor,
@@ -54,28 +58,25 @@ class PodcastPageView extends StatelessWidget {
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 0),
-              child: Row(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  ClipRRect(
-                    borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(15),
-                        bottomRight: Radius.circular(15)),
-                    child: Container(
-                      width: MediaQuery.of(context).size.width * 0.8,
-                      height: MediaQuery.of(context).size.height * 0.3,
-                      decoration: BoxDecoration(),
-                      child: //Image.network(episode.data.PicUrl,
-                          // fit: BoxFit.cover),
-                          Image.asset(
-                        'assets/peter.png',
-                        fit: BoxFit.fill,
-                        alignment: Alignment.center,
-                      ),
-                    ),
-                  ),
-                ],
+              child: ClipRRect(
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    bottomRight: Radius.circular(15)),
+                child: Container(
+                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  decoration: BoxDecoration(),
+                  child: //Image.network(episode.data.PicUrl,
+                      // fit: BoxFit.cover),
+                      episode.links.youtube != ''
+                          ? YouTubeCard(
+                              url: episode.links.youtube,
+                            )
+                          : Image.asset(
+                              'assets/theportal.jpeg',
+                              fit: BoxFit.cover,
+                            ),
+                ),
               ),
             ),
             SizedBox(
@@ -139,7 +140,6 @@ class PodcastPageView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text('Podcast description'),
-              //'As the founder of Wand, I thought that it was important that I experience the platform first had, that\'s why, for a limited run, I\'ll be available for bookings in the St. Louis area to not only insure quality from the top down, but also to learn how to iterate and improve Wand while taking my first salary from the company. I would warn however, if it\'s a quality service you\'re looking for, I\'d recommend searching and giving the business to one of our many other talented cleaning professionals on the platform. Thanks for using Wand!'),
             ),
             SizedBox(
               height: 32.0,
@@ -147,27 +147,21 @@ class PodcastPageView extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Text(
-                'Links or Projects?',
+                'More about The Portal',
                 style: TextStyle(fontWeight: FontWeight.w600),
               ),
             ),
             Divider(),
-            SizedBox(height: 16.0),
             Padding(
               padding:
                   const EdgeInsets.symmetric(horizontal: 16.0, vertical: 16.0),
-              child: Row(
-                children: <Widget>[
-                  SizedBox(
-                    width: 3,
-                  ),
-                  Text('This is where links will go?',
+              child: Container(
+                  child: Text(
+                      'A podcast hosted by Eric Weinstein, The Portal is a journey of discovery. It is wide ranging and deep diving discussions with distinguished guests from the realms of science, culture and business. Join us as we seek portals that will carry us through the impossible- and beyond.',
                       style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w300,
-                          color: Colors.black))
-                ],
-              ),
+                          color: Colors.black))),
             ),
             SizedBox(
               height: 16.0,
