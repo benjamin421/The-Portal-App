@@ -14,6 +14,7 @@ class NavigationService {
   }
 
   bool pop([Object results]) {
-    return navigatorKey.currentState.pop([results]);
+    navigatorKey.currentState.pop([results]);
+    return [results].length > 0;
   }
 }
