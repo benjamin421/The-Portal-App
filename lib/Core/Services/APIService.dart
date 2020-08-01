@@ -7,7 +7,7 @@ import 'dart:convert';
 class DataProvider {
   Future<List<PortalEpisode>> getEpisodes() async {
     List<PortalEpisode> episodes = [];
-    final url = 'https://api.theportal.wiki/v1/podcasts';
+    final url = 'http://api.theportal.wiki/v1/podcasts';
 
     final response =
         await http.get(url, headers: {'Accept': 'application/json'});

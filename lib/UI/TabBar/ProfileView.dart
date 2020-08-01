@@ -1,3 +1,4 @@
+import 'package:fiber/Core/Services/AuthService.dart';
 import 'package:fiber/UI/Style.dart';
 import 'package:flutter/material.dart';
 import '../../Core/Helpers/Functions.dart';
@@ -79,6 +80,19 @@ class _ProfileViewState extends State<ProfileView> {
                 ),
               ),
               Divider(),
+              ListTile(
+                onTap: () {
+                 AuthService.getAuth();
+                },
+                dense: true,
+                title: Text(
+                  'Try Auth',
+                  style: TextStyle(
+                      fontWeight: FontWeight.w600,
+                      color: Style.tabsColor,
+                      fontSize: 14.0),
+                ),
+              ),
               // ListTile(
               //   onTap: () {
               //     Functions.launchURL('https://ericweinstein.org/');
@@ -99,3 +113,27 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 }
+
+ @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Web Auth example'),
+        ),
+        body: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Status: _status\n'),
+              const SizedBox(height: 80),
+              RaisedButton(
+                child: Text('Authenticate'),
+                onPressed: () { AuthService.getAuth(); },
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
