@@ -1,3 +1,4 @@
+import 'package:fiber/UI/TabBar/Community.dart';
 import 'package:fiber/UI/TabBar/Dashboard.dart';
 import 'package:fiber/UI/TabBar/PodcastListView.dart';
 import 'package:fiber/UI/TabBar/PortalBlogsView.dart';
@@ -5,7 +6,6 @@ import 'package:fiber/UI/TabBar/ProfileView.dart';
 import 'package:fiber/UI/Widgets/TabItem.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../../TabBar/Dashboard/BlogUpdateView.dart';
 import '../Style.dart';
 
 class RootTabBar extends StatefulWidget {
@@ -14,12 +14,17 @@ class RootTabBar extends StatefulWidget {
 }
 
 class _RootTabBarState extends State<RootTabBar> {
-  List<Widget> tabViews = [PodcastListView(), PortalBlogTab(), ProfileView()];
+  List<Widget> tabViews = [
+    PodcastListView(),
+    PortalBlogTab(),
+    CommunityView(),
+    ProfileView()
+  ];
 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
-      length: 3,
+      length: 4,
       child: Scaffold(
         appBar: AppBar(
           title: Column(
@@ -51,6 +56,13 @@ class _RootTabBarState extends State<RootTabBar> {
               text: 'BLOG',
               icon: Icon(
                 Icons.crop_portrait,
+                color: tabsColor,
+              ),
+            ),
+            TabItem(
+              text: 'Users',
+              icon: Icon(
+                Icons.people,
                 color: tabsColor,
               ),
             ),

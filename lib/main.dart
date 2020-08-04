@@ -30,17 +30,17 @@ void main() async {
 
   setupLocator();
 
-  runApp(Fiber());
+  runApp(ThePortal());
 }
 
-class Fiber extends StatefulWidget {
-  Fiber({Key key}) : super(key: key);
+class ThePortal extends StatefulWidget {
+  ThePortal({Key key}) : super(key: key);
 
   @override
-  _FiberAppState createState() => _FiberAppState();
+  _ThePortalAppState createState() => _ThePortalAppState();
 }
 
-class _FiberAppState extends State<Fiber> {
+class _ThePortalAppState extends State<ThePortal> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [

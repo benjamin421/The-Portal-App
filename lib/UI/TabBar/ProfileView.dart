@@ -14,6 +14,7 @@ class ProfileView extends StatefulWidget {
 class _ProfileViewState extends State<ProfileView> {
   @override
   TextEditingController _textFieldController = TextEditingController();
+  var token;
 
   @override
   Widget build(BuildContext context) {
@@ -82,7 +83,7 @@ class _ProfileViewState extends State<ProfileView> {
               Divider(),
               ListTile(
                 onTap: () {
-                 AuthService.getAuth();
+                  token = AuthService.getToken();
                 },
                 dense: true,
                 title: Text(
@@ -113,27 +114,3 @@ class _ProfileViewState extends State<ProfileView> {
     );
   }
 }
-
- @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('Web Auth example'),
-        ),
-        body: Center(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Status: _status\n'),
-              const SizedBox(height: 80),
-              RaisedButton(
-                child: Text('Authenticate'),
-                onPressed: () { AuthService.getAuth(); },
-              ),
-            ],
-          ),
-        ),
-      ),
-    );
-  }
