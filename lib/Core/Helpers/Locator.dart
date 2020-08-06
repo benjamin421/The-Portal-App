@@ -1,21 +1,19 @@
-import 'package:fiber/Core/Services/APIService.dart';
-import 'package:fiber/Core/Services/DialogService.dart';
-import 'package:fiber/Core/ViewModels/EpisodeTabModel.dart';
-import 'package:fiber/Core/ViewModels/PortalBlogModel.dart';
-
+import 'package:fiber/Core/Services/api_service.dart';
+import 'package:fiber/Core/Services/app_service.dart';
+import 'package:fiber/Core/Services/dialog_service.dart';
+import 'package:fiber/Core/Services/navigation_service.dart';
+import 'package:fiber/Core/Services/portal_blog_service.dart';
+import 'package:fiber/Core/ViewModels/episode_tab_model.dart';
+import 'package:fiber/Core/ViewModels/portal_blog_model.dart';
 import 'package:get_it/get_it.dart';
-import 'package:fiber/Core/Services/NavigationService.dart';
-import 'package:fiber/Core/Services/EpisodeService.dart';
-import 'package:fiber/Core/Services/PortalBlogService.dart';
 
-import 'package:fiber/Core/Services/AppService.dart';
 
 GetIt locator = GetIt.instance;
 
 void setupLocator() {
   locator.registerLazySingleton(() => DataProvider());
   locator.registerLazySingleton(() => NavigationService());
-  locator.registerLazySingleton(() => EpisodesService());
+  locator.registerLazySingleton(() => EpisodeTabModel());
   locator.registerLazySingleton(() => PortalBlogService());
 
   locator.registerLazySingleton(() => AppService());

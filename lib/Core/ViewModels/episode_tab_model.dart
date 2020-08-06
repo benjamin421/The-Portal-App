@@ -1,9 +1,9 @@
-import 'package:fiber/Core/Enums/ViewState.dart';
-import 'package:fiber/Models/PortalEpisode.dart';
-import 'package:fiber/Core/Services/EpisodeService.dart';
+import 'package:fiber/Core/Enums/view_state.dart';
+import 'package:fiber/Models/portal_episode.dart';
+import 'package:fiber/Core/Services/episode_service.dart';
 
-import 'package:fiber/Core/ViewModels/BaseModel.dart';
-import 'package:fiber/Core/Helpers/Locator.dart';
+import 'package:fiber/Core/ViewModels/base_model.dart';
+import 'package:fiber/Core/Helpers/locator.dart';
 
 class EpisodeTabModel extends BaseModel {
   final EpisodesService _episodesService = locator<EpisodesService>();

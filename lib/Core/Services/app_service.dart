@@ -1,7 +1,7 @@
 import 'dart:async';
-import '../Helpers/Locator.dart';
-import '../../Models/App.dart';
-import '../Services/EpisodeService.dart';
+import '../Helpers/locator.dart';
+import '../../Models/app.dart';
+import 'episode_service.dart';
 
 class AppService {
   StreamController<App> appController = StreamController<App>.broadcast();

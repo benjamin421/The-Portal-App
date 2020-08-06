@@ -1,4 +1,4 @@
-import '../../Shared/AppConstants.dart' as env;
+import '../../Shared/app_constants.dart' as env;
 
 class Functions {
   urlConstructor(String userId, String avatarId) {

@@ -1,8 +1,8 @@
 import 'package:flutter/foundation.dart';
-import 'package:fiber/Core/Enums/ViewState.dart';
-import 'package:fiber/Core/Services/NavigationService.dart';
+import 'package:fiber/Core/Enums/view_state.dart';
+import 'package:fiber/Core/Services/navigation_service.dart';
 
-import 'package:fiber/Core/Helpers/Locator.dart';
+import 'package:fiber/Core/Helpers/locator.dart';
 
 class BaseModel extends ChangeNotifier {
   final NavigationService _navigationService = locator<NavigationService>();

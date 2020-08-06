@@ -1,5 +1,5 @@
-import 'package:fiber/Networking/PortalEpisodeDataProvider.dart';
-import 'package:fiber/UI/TabBar/BlogUpdateView.dart';
+import 'package:fiber/Networking/portal_episode_data_provider.dart';
+import 'package:fiber/UI/TabBar/blog_update_view.dart';
 import 'package:flutter/cupertino.dart';
 
 class Dashboard extends StatefulWidget {

@@ -1,5 +1,5 @@
-import 'package:fiber/UI/View/SplashScreen.dart';
-import 'package:fiber/UI/TabBar/RootTabBar.dart';
+import 'package:fiber/UI/TabBar/root_tab_bar.dart';
+import 'package:fiber/UI/View/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 const String initialRoute = "/";

@@ -1,11 +1,11 @@
-import 'package:fiber/Core/ViewModels/EpisodeTabModel.dart';
+import 'package:fiber/Core/ViewModels/episode_tab_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:fiber/Core/Enums/ViewState.dart';
-import 'package:fiber/Models/PortalEpisode.dart';
+import 'package:fiber/Core/Enums/view_state.dart';
+import 'package:fiber/Models/portal_episode.dart';
 
-import 'package:fiber/UI/Widgets/EpisodesList.dart';
-import 'package:fiber/UI/View/BaseView.dart';
+import 'package:fiber/UI/Widgets/episodes_list.dart';
+import 'package:fiber/UI/View/base_view.dart';
 
 class PodcastListView extends StatefulWidget {
   static const routeName = '/profile';

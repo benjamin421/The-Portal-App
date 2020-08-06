@@ -1,10 +1,10 @@
-import 'package:fiber/UI/Widgets/YouTubePlayer.dart';
+import 'package:fiber/UI/Widgets/youtube_player.dart';
 import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
-import '../../Models/PortalEpisode.dart';
-import '../Style.dart';
-import '../../Core/Helpers/Functions.dart';
+import '../../Models/portal_episode.dart';
+import '../style.dart';
+import '../../Core/Helpers/functions.dart';
 
 class PodcastPageView extends StatelessWidget {
   static const routeName = '/profile';

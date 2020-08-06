@@ -1,12 +1,12 @@
-import 'package:fiber/UI/TabBar/Community.dart';
-import 'package:fiber/UI/TabBar/Dashboard.dart';
-import 'package:fiber/UI/TabBar/PodcastListView.dart';
-import 'package:fiber/UI/TabBar/PortalBlogsView.dart';
-import 'package:fiber/UI/TabBar/ProfileView.dart';
-import 'package:fiber/UI/Widgets/TabItem.dart';
+import 'package:fiber/UI/TabBar/community.dart';
+import 'package:fiber/UI/TabBar/dashboard.dart';
+import 'package:fiber/UI/TabBar/podcast_list_view.dart';
+import 'package:fiber/UI/TabBar/portal_blogs_view.dart';
+import 'package:fiber/UI/TabBar/profile_view.dart';
+import 'package:fiber/UI/Widgets/tab_item.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../Style.dart';
+import '../style.dart';
 
 class RootTabBar extends StatefulWidget {
   @override

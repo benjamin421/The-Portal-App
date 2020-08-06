@@ -1,9 +1,9 @@
-import 'package:fiber/Core/Enums/ViewState.dart';
-import 'package:fiber/Core/Services/PortalBlogService.dart';
+import 'package:fiber/Core/Enums/view_state.dart';
+import 'package:fiber/Core/Services/portal_blog_service.dart';
 
-import 'package:fiber/Core/ViewModels/BaseModel.dart';
-import 'package:fiber/Core/Helpers/Locator.dart';
-import 'package:fiber/Models/WPBlog.dart';
+import 'package:fiber/Core/ViewModels/base_model.dart';
+import 'package:fiber/Core/Helpers/locator.dart';
+import 'package:fiber/Models/wp_blog.dart';
 
 class PortalBlogsModel extends BaseModel {
   final PortalBlogService _blogsService = locator<PortalBlogService>();

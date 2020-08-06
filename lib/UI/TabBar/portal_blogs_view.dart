@@ -1,11 +1,11 @@
-import 'package:fiber/UI/Widgets/PortalBlogFeaturedScroller.dart';
-import 'package:fiber/UI/Widgets/PortalBlogList.dart';
+import 'package:fiber/UI/Widgets/portal_blog_featured_scroller.dart';
+import 'package:fiber/UI/Widgets/portal_blog_list.dart';
 import 'package:flutter/material.dart';
-import '../../Models/WPBlog.dart';
-import '../../Core/ViewModels/PortalBlogModel.dart';
-import 'package:fiber/UI/View/BaseView.dart';
+import '../../Models/wp_blog.dart';
+import '../../Core/ViewModels/portal_blog_model.dart';
+import 'package:fiber/UI/View/base_view.dart';
 import 'package:provider/provider.dart';
-import '../../Core/Enums/ViewState.dart';
+import '../../Core/Enums/view_state.dart';
 
 class PortalBlogTab extends StatefulWidget {
   @override

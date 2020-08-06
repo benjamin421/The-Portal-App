@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:fiber/Core/Helpers/Locator.dart';
-import 'package:fiber/Models/Dialog.dart';
-import 'package:fiber/Models/OptionsDialog.dart';
+import 'package:fiber/Core/Helpers/locator.dart';
+import 'package:fiber/Models/dialog.dart';
+import 'package:fiber/Models/options_dialog.dart';
 
-import 'package:fiber/Core/Services/DialogService.dart';
+import 'package:fiber/Core/Services/dialog_service.dart';
 
 class DialogManager extends StatefulWidget {
   final Widget child;
