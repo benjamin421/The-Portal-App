@@ -33,7 +33,7 @@ class UserRepository {
 
   Future<User> getUserProfile() async {}
 
-  Future<User> login() async {
+  Future<Map> login() async {
     try {
       final result = await FlutterWebAuth.authenticate(
           url:
@@ -55,7 +55,7 @@ class UserRepository {
       PreferenceUtils.setString("accessData", _tokens.accessData.toJson());
       // await updateDeviceToken(_tokens.accessData.userLogin.orgId);
       User user = await getUserProfile();
-      return user;
+      return accessData;
     } catch (e) {
       print("Error user login: $e");
       return null;

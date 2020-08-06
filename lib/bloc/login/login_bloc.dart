@@ -13,9 +13,6 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
 
   LoginBloc(this._authenticationBloc) : super(LoginInitial());
 
- 
-
-
   @override
   Stream<LoginState> mapEventToState(
     LoginEvent event,
@@ -24,8 +21,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       yield LoginLoad();
       // await FirebaseAuth.instance.signInWithEmailAndPassword(
       //     email: event.email, password: event.password);
-      UserData user = await _authenticationBloc.userRepository
-          .login();
+      User user; // = await _authenticationBloc.userRepository
+      // .login();
       if (user != null) {
         _authenticationBloc.add(LoggedIn(user: user));
         yield LoginSuccess(user: user);

@@ -10,11 +10,8 @@ import 'package:fiber/Core/Services/episode_service.dart';
 import 'package:fiber/Core/Services/portal_blog_service.dart';
 
 import 'package:fiber/Core/Services/navigation_service.dart';
-import 'package:fiber/Core/Services/app_service.dart';
 
 import 'package:fiber/Core/Helpers/get_adaptive_theme.dart';
-
-import 'package:fiber/Models/app.dart';
 
 void main() async {
   // debugPaintSizeEnabled = true;
@@ -44,13 +41,6 @@ class _ThePortalAppState extends State<ThePortal> {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        StreamProvider<App>(
-          initialData: App()..tokenExpired = false,
-          create: (context) => locator<AppService>().appController.stream,
-          updateShouldNotify: (oldApp, newApp) {
-            return oldApp == newApp;
-          },
-        ),
         StreamProvider<List<PortalEpisode>>(
           initialData: <PortalEpisode>[],
           create: (_) => locator<EpisodesService>().episodesController.stream,
@@ -60,21 +50,19 @@ class _ThePortalAppState extends State<ThePortal> {
           create: (_) => locator<PortalBlogService>().blogsController.stream,
         ),
       ],
-      child: Consumer<App>(
-        builder: (context, model, child) => MaterialApp(
-          theme: getAdaptiveTheme(context),
-          initialRoute: refreshRoute,
-          builder: (context, widget) {
-            return Navigator(
-              onGenerateRoute: (settings) => MaterialPageRoute(
-                  builder: (context) => DialogManager(
-                        child: widget,
-                      )),
-            );
-          },
-          onGenerateRoute: Router.generateRoute,
-          navigatorKey: locator<NavigationService>().navigatorKey,
-        ),
+      child: MaterialApp(
+        theme: getAdaptiveTheme(context),
+        initialRoute: refreshRoute,
+        builder: (context, widget) {
+          return Navigator(
+            onGenerateRoute: (settings) => MaterialPageRoute(
+                builder: (context) => DialogManager(
+                      child: widget,
+                    )),
+          );
+        },
+        onGenerateRoute: Router.generateRoute,
+        navigatorKey: locator<NavigationService>().navigatorKey,
       ),
     );
   }
