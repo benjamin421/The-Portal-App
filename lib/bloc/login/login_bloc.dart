@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
-import 'package:fiber/Models/user.dart';
+import 'package:fiber/Models/User.dart';
 import 'package:fiber/bloc/authentication/authentication_bloc.dart';
 import 'package:meta/meta.dart';
 
@@ -24,8 +24,8 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
       yield LoginLoad();
       // await FirebaseAuth.instance.signInWithEmailAndPassword(
       //     email: event.email, password: event.password);
-      User user = await _authenticationBloc.userRepository
-          .login(email: event.email, password: event.password);
+      UserData user = await _authenticationBloc.userRepository
+          .login();
       if (user != null) {
         _authenticationBloc.add(LoggedIn(user: user));
         yield LoginSuccess(user: user);

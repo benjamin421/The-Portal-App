@@ -1,6 +1,6 @@
-import 'package:fiber/Networking/DashboardItemDataProvider.dart';
-import 'package:fiber/UI/View/BlogWebView.dart';
-import 'package:fiber/UI/Widgets/BlogCard.dart';
+import 'package:fiber/Networking/dashboard_item_data_provider.dart';
+import 'package:fiber/UI/View/blog_web_view.dart';
+import 'package:fiber/UI/Widgets/blog_card.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 

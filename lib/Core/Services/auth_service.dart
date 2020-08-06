@@ -6,7 +6,7 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import '../../Shared/AppConstants.dart' as env;
+import '../../Shared/app_constants.dart' as env;
 
 class AuthService {
   var authToken;

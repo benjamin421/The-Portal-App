@@ -1,10 +1,10 @@
-import 'package:fiber/Core/Services/AuthService.dart';
-import 'package:fiber/UI/Style.dart';
-import 'package:fiber/UI/Widgets/ProfileAvatar.dart';
+import 'package:fiber/Core/Services/auth_service.dart';
+import 'package:fiber/UI/style.dart';
+import 'package:fiber/UI/Widgets/profile_avatar.dart';
 import 'package:flutter/material.dart';
 import 'package:graphql_flutter/graphql_flutter.dart';
-import '../../Core/Helpers/Functions.dart';
-import '../../Shared/AppConstants.dart' as env;
+import '../../Core/Helpers/functions.dart';
+import '../../Shared/app_constants.dart' as env;
 
 class CommunityView extends StatefulWidget {
   static const routeName = '/profile';

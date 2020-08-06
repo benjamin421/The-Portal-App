@@ -32,3 +32,7 @@ class AuthenticationState extends Equatable {
   @override
   List<Object> get props => [user, status, message];
 }
+
+class Authenticated extends AuthenticationState{
+  
+}

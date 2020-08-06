@@ -1,20 +1,20 @@
-import 'package:fiber/Core/Helpers/DialogManager.dart';
-import 'package:fiber/Models/PortalEpisode.dart';
-import 'package:fiber/Models/WPBlog.dart';
-import 'package:fiber/Router.dart';
+import 'package:fiber/Core/Helpers/dialog_manger.dart';
+import 'package:fiber/Models/portal_episode.dart';
+import 'package:fiber/Models/wp_blog.dart';
+import 'package:fiber/router.dart';
 import 'package:flutter/material.dart';
-import 'Core/Helpers/Locator.dart';
+import 'Core/Helpers/locator.dart';
 import 'package:flutter/services.dart';
 import 'package:provider/provider.dart';
-import 'package:fiber/Core/Services/EpisodeService.dart';
-import 'package:fiber/Core/Services/PortalBlogService.dart';
+import 'package:fiber/Core/Services/episode_service.dart';
+import 'package:fiber/Core/Services/portal_blog_service.dart';
 
-import 'package:fiber/Core/Services/NavigationService.dart';
-import 'package:fiber/Core/Services/AppService.dart';
+import 'package:fiber/Core/Services/navigation_service.dart';
+import 'package:fiber/Core/Services/app_service.dart';
 
-import 'package:fiber/Core/Helpers/GetAdaptiveTheme.dart';
+import 'package:fiber/Core/Helpers/get_adaptive_theme.dart';
 
-import 'package:fiber/Models/App.dart';
+import 'package:fiber/Models/app.dart';
 
 void main() async {
   // debugPaintSizeEnabled = true;

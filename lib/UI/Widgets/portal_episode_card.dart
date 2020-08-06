@@ -1,6 +1,6 @@
-import 'package:fiber/UI/View/PodcastPageView.dart';
+import 'package:fiber/UI/View/podcast_page_view.dart';
 import 'package:flutter/material.dart';
-import '../../Models/PortalEpisode.dart';
+import '../../Models/portal_episode.dart';
 
 class PortalEpisodeCard extends StatefulWidget {
   //EpisodeList({Key key}) : super(key: key);

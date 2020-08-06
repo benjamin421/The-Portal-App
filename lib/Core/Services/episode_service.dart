@@ -1,8 +1,8 @@
 import 'dart:async';
-import 'package:fiber/Core/Services/APIService.dart';
+import 'package:fiber/Core/Services/api_service.dart';
 
-import 'package:fiber/Core/Helpers/Locator.dart';
-import 'package:fiber/Models/PortalEpisode.dart';
+import 'package:fiber/Core/Helpers/locator.dart';
+import 'package:fiber/Models/portal_episode.dart';
 
 
 

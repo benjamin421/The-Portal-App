@@ -1,7 +1,7 @@
-import 'package:fiber/Core/Services/AuthService.dart';
-import 'package:fiber/UI/Style.dart';
+import 'package:fiber/Core/Services/auth_service.dart';
+import 'package:fiber/UI/style.dart';
 import 'package:flutter/material.dart';
-import '../../Core/Helpers/Functions.dart';
+import '../../Core/Helpers/functions.dart';
 
 class ProfileView extends StatefulWidget {
   static const routeName = '/profile';

@@ -2,7 +2,7 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../Style.dart';
+import '../style.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class BlogWebView extends StatefulWidget {

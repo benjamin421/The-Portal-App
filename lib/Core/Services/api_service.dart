@@ -1,5 +1,5 @@
-import 'package:fiber/Models/PortalEpisode.dart';
-import 'package:fiber/Models/WPBlog.dart';
+import 'package:fiber/Models/portal_episode.dart';
+import 'package:fiber/Models/wp_blog.dart';
 
 import 'package:http/http.dart' as http;
 import 'dart:convert';

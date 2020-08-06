@@ -1,7 +1,7 @@
 import 'dart:async';
-import 'package:fiber/Models/Dialog.dart';
-import 'package:fiber/Models/DialogButtonAction.dart';
-import 'package:fiber/Models/OptionsDialog.dart';
+import 'package:fiber/Models/dialog.dart';
+import 'package:fiber/Models/dialog_button_action.dart';
+import 'package:fiber/Models/options_dialog.dart';
 
 class DialogService {
   Function(DialogModel) _showDialogListener;

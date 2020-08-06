@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../Style.dart';
+import '../style.dart';
 
 class TabItem extends StatelessWidget {
   final String text;

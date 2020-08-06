@@ -1,5 +1,5 @@
-import 'package:fiber/Models/PortalEpisode.dart';
-import 'package:fiber/UI/Widgets/PortalEpisodeCard.dart';
+import 'package:fiber/Models/portal_episode.dart';
+import 'package:fiber/UI/Widgets/portal_episode_card.dart';
 import 'package:flutter/material.dart';
 
 class EpisodeList extends StatelessWidget {

@@ -1,5 +1,5 @@
-import 'DialogButtonAction.dart';
-import 'Dialog.dart';
+import 'dialog_button_action.dart';
+import 'dialog.dart';
 
 class OptionsDialog extends DialogModel {
   String title;

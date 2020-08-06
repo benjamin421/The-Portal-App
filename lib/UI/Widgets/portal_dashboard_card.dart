@@ -1,4 +1,4 @@
-import 'package:fiber/Models/PortalEpisode.dart';
+import 'package:fiber/Models/portal_episode.dart';
 import 'package:flutter/cupertino.dart';
 
 class PortalDashboardCard extends StatelessWidget {

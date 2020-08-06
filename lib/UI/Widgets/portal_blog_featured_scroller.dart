@@ -1,8 +1,8 @@
-import 'package:fiber/Models/WPBlog.dart';
-import 'package:fiber/UI/Widgets/OverlayedContainer.dart';
-import 'package:fiber/UI/Widgets/PortalEpisodeCard.dart';
+import 'package:fiber/Models/wp_blog.dart';
+import 'package:fiber/UI/Widgets/overlayed_container.dart';
+import 'package:fiber/UI/Widgets/portal_episode_card.dart';
 import 'package:flutter/material.dart';
-import '../View/BlogWebView.dart';
+import '../View/blog_web_view.dart';
 
 class PortalBlogPageView extends StatelessWidget {
   final List<WpBlog> blogs;
